@@ -495,41 +495,48 @@ errores = MODELO["error_por_grupo"]["rmse_por_cultivo"]
 cultivo_peor = max(errores, key=errores.get)
 cultivo_mejor = min(errores, key=errores.get)
 filas_cultivo = sesgo["cultivos"]
+cultivo_menos_repr = min(filas_cultivo, key=filas_cultivo.get)
+cultivo_mas_repr = max(filas_cultivo, key=filas_cultivo.get)
 vinetas(
     [
-        "Sesgo de representación: el dataset sobrerrepresenta países con series estadísticas largas "
-        f"({pais_top}: {filas_top:,} filas) frente a otros con muy pocas ({pais_min}: {filas_min}). Ecuador "
+        "Sesgo de representación: el dataset sobrerrepresenta países con series estadísticas completas "
+        f"({pais_top}: {filas_top:,} filas) frente a otros con muy pocas ({pais_min}: {filas_min}); y "
+        f"cultivos globales ({cultivo_mas_repr}: {filas_cultivo[cultivo_mas_repr]:,} filas) frente a "
+        f"cultivos regionales ({cultivo_menos_repr}: {filas_cultivo[cultivo_menos_repr]:,}). Ecuador "
         f"cuenta con {sesgo['filas_ecuador']} filas, una representación intermedia razonable.",
         "Consecuencia potencial: el modelo aprende mejor los patrones de los grupos dominantes y podría "
         "predecir peor —'discriminar' estadísticamente— a países o cultivos minoritarios.",
         f"Verificación cuantitativa: se midió el error por grupo. El RMSE para Ecuador es de "
         f"{MODELO['error_por_grupo']['rmse_ecuador']} ton/ha (mejor que el promedio global de "
-        f"{rf['rmse_ton_ha']}), por lo que el sesgo no perjudica al mercado objetivo. En cambio, los grupos "
-        f"menos representados sí sufren: {cultivo_peor} ({filas_cultivo.get(cultivo_peor, 0):,} filas) tiene "
-        f"RMSE de {errores[cultivo_peor]} frente a {errores[cultivo_mejor]} de {cultivo_mejor} "
-        f"({filas_cultivo.get(cultivo_mejor, 0):,} filas). Las recomendaciones de los cultivos con mayor "
-        "error se comunican al negocio con una advertencia explícita de mayor incertidumbre.",
+        f"{rf['rmse_ton_ha']}), por lo que el sesgo no perjudica al mercado objetivo. El error por cultivo "
+        f"varía de {errores[cultivo_mejor]} ({cultivo_mejor}) a {errores[cultivo_peor]} ({cultivo_peor}); "
+        "el análisis muestra que ese error se explica sobre todo por la magnitud y varianza del rendimiento "
+        "de cada cultivo (la papa rinde 5-50 ton/ha según el país; la soya se mueve en un rango estrecho), "
+        "además de la representación. Las recomendaciones de los cultivos con mayor error se comunican al "
+        "negocio con una advertencia explícita de mayor incertidumbre.",
         f"Sesgo temporal: el histórico llega hasta {ANIO_MAX} (FAOSTAT publica con ~1-2 años de rezago); el "
         "pipeline automatizado permite reentrenar con cada actualización oficial antes de cada campaña.",
     ]
 )
 parrafo("IA Explicable (XAI):", negrita=True)
+xai = MODELO["xai_importancia_permutacion"]
 parrafo(
     "Para que el comité confíe en el algoritmo se calculó la importancia de variables por permutación "
     "(cuánto cae el R² al aleatorizar cada variable). El resultado es intuitivo para el negocio: el tipo de "
     "cultivo es por lejos el factor dominante (una papa rinde en toneladas mucho más que un trigo), seguido "
     "del país (proxy de suelo, tecnología y variedades). Entre los factores accionables/monitoreables, "
-    "pesticidas (0.18), temperatura (0.11) y lluvia (0.11) tienen pesos comparables. La explicación al "
-    "negocio: 'el modelo primero ubica el cultivo y el país, y luego ajusta la estimación según el clima y "
-    f"el manejo del año; funciona como lo haría un agrónomo experimentado, pero con la memoria de "
-    f"{N_FILAS:,} cosechas'."
+    f"pesticidas ({xai['Pesticidas (ton)']:.2f}), temperatura ({xai['Temperatura media (°C)']:.2f}) y "
+    f"lluvia ({xai['Lluvia anual (mm)']:.2f}) tienen pesos comparables. La explicación al negocio: 'el "
+    "modelo primero ubica el cultivo y el país, y luego ajusta la estimación según el clima y el manejo "
+    f"del año; funciona como lo haría un agrónomo experimentado, pero con la memoria de {N_FILAS:,} "
+    "cosechas'."
 )
 figura("08_importancia_variables.png", "Figura 8. Importancia de variables por permutación (XAI) del modelo ganador.")
 parrafo(
     "Gobernanza del modelo: el pipeline completo (preprocesamiento + modelo) se versiona como un único "
     "artefacto (modelo_rendimiento.joblib); las predicciones se comunican siempre con su margen de error "
-    "(±1.11 ton/ha); y la decisión final de compra permanece en el comité humano, con el modelo como apoyo "
-    "—principio de supervisión humana definido desde la Fase 1."
+    f"(±{rf['rmse_ton_ha']} ton/ha); y la decisión final de compra permanece en el comité humano, con el "
+    "modelo como apoyo —principio de supervisión humana definido desde la Fase 1."
 )
 doc.add_page_break()
 
