@@ -245,7 +245,8 @@ def main() -> None:
     with open(RUTA_REPORTES / "modelo_resultados.json", "w", encoding="utf-8") as f:
         json.dump(resultados, f, ensure_ascii=False, indent=2)
 
-    joblib.dump(modelo_final, RUTA_MODELOS / "modelo_rendimiento.joblib")
+    # compress=3 reduce el artefacto de ~208 MB a ~64 MB (cabe en GitHub)
+    joblib.dump(modelo_final, RUTA_MODELOS / "modelo_rendimiento.joblib", compress=3)
     print(f"OK — modelo guardado en models/modelo_rendimiento.joblib")
 
 

@@ -18,8 +18,5 @@ data/raw/temp.csv
 data/raw/rainfall.csv
 data/raw/pesticides.csv
 
-# Modelo entrenado (>100 MB; se regenera con src/models/entrenar_modelo.py)
-models/*.joblib
-
 # Metadatos del agente
 .atl/
