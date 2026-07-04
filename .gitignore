@@ -1,0 +1,25 @@
+# Entorno
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+nohup.out
+
+# Bulks de FAOSTAT (>100 MB; se descargan con los comandos del README)
+data/raw/Production_Crops_Livestock_E_All_Data_(Normalized).csv
+data/raw/Production_Crops_Livestock_E_*.csv
+data/raw/Inputs_Pesticides_Use_E_*.csv
+data/raw/faostat_*.zip
+
+# Dataset legado de Kaggle (reemplazado por rendimiento_actualizado.csv)
+data/raw/yield.csv
+data/raw/yield_df.csv
+data/raw/temp.csv
+data/raw/rainfall.csv
+data/raw/pesticides.csv
+
+# Modelo entrenado (>100 MB; se regenera con src/models/entrenar_modelo.py)
+models/*.joblib
+
+# Metadatos del agente
+.atl/

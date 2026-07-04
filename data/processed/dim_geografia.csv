@@ -1,0 +1,184 @@
+id_geografia,pais,region_comercial
+1,Albania,Resto del mundo
+2,Algeria,Resto del mundo
+3,Angola,Resto del mundo
+4,Antigua and Barbuda,Resto del mundo
+5,Argentina,Latinoamérica (referencia)
+6,Armenia,Resto del mundo
+7,Australia,Resto del mundo
+8,Austria,Resto del mundo
+9,Azerbaijan,Resto del mundo
+10,Bahamas,Resto del mundo
+11,Bahrain,Resto del mundo
+12,Bangladesh,Resto del mundo
+13,Barbados,Resto del mundo
+14,Belarus,Resto del mundo
+15,Belgium,Resto del mundo
+16,Belize,Resto del mundo
+17,Benin,Resto del mundo
+18,Bhutan,Resto del mundo
+19,Bolivia (Plurinational State of),Resto del mundo
+20,Bosnia and Herzegovina,Resto del mundo
+21,Botswana,Resto del mundo
+22,Brazil,Latinoamérica (referencia)
+23,Brunei Darussalam,Resto del mundo
+24,Bulgaria,Resto del mundo
+25,Burkina Faso,Resto del mundo
+26,Burundi,Resto del mundo
+27,Cabo Verde,Resto del mundo
+28,Cambodia,Resto del mundo
+29,Cameroon,Resto del mundo
+30,Canada,Resto del mundo
+31,Central African Republic,Resto del mundo
+32,Chad,Resto del mundo
+33,Chile,Latinoamérica (referencia)
+34,"China, Taiwan Province of",Resto del mundo
+35,"China, mainland",Resto del mundo
+36,Colombia,Latinoamérica (referencia)
+37,Comoros,Resto del mundo
+38,Congo,Resto del mundo
+39,Cook Islands,Resto del mundo
+40,Costa Rica,Resto del mundo
+41,Croatia,Resto del mundo
+42,Cuba,Resto del mundo
+43,Cyprus,Resto del mundo
+44,Czechia,Resto del mundo
+45,Côte d'Ivoire,Resto del mundo
+46,Democratic Republic of the Congo,Resto del mundo
+47,Denmark,Resto del mundo
+48,Djibouti,Resto del mundo
+49,Dominican Republic,Resto del mundo
+50,Ecuador,Ecuador (mercado propio)
+51,Egypt,Resto del mundo
+52,El Salvador,Resto del mundo
+53,Equatorial Guinea,Resto del mundo
+54,Eritrea,Resto del mundo
+55,Estonia,Resto del mundo
+56,Eswatini,Resto del mundo
+57,Ethiopia,Resto del mundo
+58,Faroe Islands,Resto del mundo
+59,Fiji,Resto del mundo
+60,Finland,Resto del mundo
+61,France,Resto del mundo
+62,French Polynesia,Resto del mundo
+63,Gabon,Resto del mundo
+64,Gambia,Resto del mundo
+65,Georgia,Resto del mundo
+66,Germany,Resto del mundo
+67,Ghana,Resto del mundo
+68,Greece,Resto del mundo
+69,Grenada,Resto del mundo
+70,Guatemala,Resto del mundo
+71,Guinea,Resto del mundo
+72,Guinea-Bissau,Resto del mundo
+73,Guyana,Resto del mundo
+74,Haiti,Resto del mundo
+75,Honduras,Resto del mundo
+76,Hungary,Resto del mundo
+77,Iceland,Resto del mundo
+78,India,Resto del mundo
+79,Indonesia,Resto del mundo
+80,Iran (Islamic Republic of),Resto del mundo
+81,Iraq,Resto del mundo
+82,Ireland,Resto del mundo
+83,Israel,Resto del mundo
+84,Italy,Resto del mundo
+85,Jamaica,Resto del mundo
+86,Japan,Resto del mundo
+87,Jordan,Resto del mundo
+88,Kazakhstan,Resto del mundo
+89,Kenya,Resto del mundo
+90,Kuwait,Resto del mundo
+91,Kyrgyzstan,Resto del mundo
+92,Lao People's Democratic Republic,Resto del mundo
+93,Latvia,Resto del mundo
+94,Lebanon,Resto del mundo
+95,Lesotho,Resto del mundo
+96,Liberia,Resto del mundo
+97,Libya,Resto del mundo
+98,Lithuania,Resto del mundo
+99,Luxembourg,Resto del mundo
+100,Madagascar,Resto del mundo
+101,Malawi,Resto del mundo
+102,Malaysia,Resto del mundo
+103,Maldives,Resto del mundo
+104,Mali,Resto del mundo
+105,Malta,Resto del mundo
+106,Mauritania,Resto del mundo
+107,Mauritius,Resto del mundo
+108,Mexico,Latinoamérica (referencia)
+109,Micronesia (Federated States of),Resto del mundo
+110,Mongolia,Resto del mundo
+111,Montenegro,Resto del mundo
+112,Morocco,Resto del mundo
+113,Mozambique,Resto del mundo
+114,Myanmar,Resto del mundo
+115,Namibia,Resto del mundo
+116,Nepal,Resto del mundo
+117,Netherlands (Kingdom of the),Resto del mundo
+118,New Caledonia,Resto del mundo
+119,New Zealand,Resto del mundo
+120,Nicaragua,Resto del mundo
+121,Niger,Resto del mundo
+122,Nigeria,Resto del mundo
+123,Niue,Resto del mundo
+124,North Macedonia,Resto del mundo
+125,Norway,Resto del mundo
+126,Oman,Resto del mundo
+127,Pakistan,Resto del mundo
+128,Panama,Resto del mundo
+129,Papua New Guinea,Resto del mundo
+130,Paraguay,Resto del mundo
+131,Peru,Latinoamérica (referencia)
+132,Philippines,Resto del mundo
+133,Poland,Resto del mundo
+134,Portugal,Resto del mundo
+135,Qatar,Resto del mundo
+136,Republic of Korea,Resto del mundo
+137,Republic of Moldova,Resto del mundo
+138,Romania,Resto del mundo
+139,Russian Federation,Resto del mundo
+140,Rwanda,Resto del mundo
+141,Saint Kitts and Nevis,Resto del mundo
+142,Saint Lucia,Resto del mundo
+143,Saint Vincent and the Grenadines,Resto del mundo
+144,Samoa,Resto del mundo
+145,Sao Tome and Principe,Resto del mundo
+146,Saudi Arabia,Resto del mundo
+147,Senegal,Resto del mundo
+148,Serbia,Resto del mundo
+149,Seychelles,Resto del mundo
+150,Sierra Leone,Resto del mundo
+151,Slovakia,Resto del mundo
+152,Slovenia,Resto del mundo
+153,Solomon Islands,Resto del mundo
+154,Somalia,Resto del mundo
+155,South Africa,Resto del mundo
+156,Spain,Resto del mundo
+157,Sri Lanka,Resto del mundo
+158,Sudan,Resto del mundo
+159,Suriname,Resto del mundo
+160,Sweden,Resto del mundo
+161,Switzerland,Resto del mundo
+162,Syrian Arab Republic,Resto del mundo
+163,Tajikistan,Resto del mundo
+164,Thailand,Resto del mundo
+165,Timor-Leste,Resto del mundo
+166,Togo,Resto del mundo
+167,Tonga,Resto del mundo
+168,Trinidad and Tobago,Resto del mundo
+169,Tunisia,Resto del mundo
+170,Turkmenistan,Resto del mundo
+171,Türkiye,Resto del mundo
+172,Uganda,Resto del mundo
+173,Ukraine,Resto del mundo
+174,United Kingdom of Great Britain and Northern Ireland,Resto del mundo
+175,United Republic of Tanzania,Resto del mundo
+176,United States of America,Resto del mundo
+177,Uruguay,Resto del mundo
+178,Vanuatu,Resto del mundo
+179,Venezuela (Bolivarian Republic of),Resto del mundo
+180,Viet Nam,Resto del mundo
+181,Yemen,Resto del mundo
+182,Zambia,Resto del mundo
+183,Zimbabwe,Resto del mundo

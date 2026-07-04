@@ -1,0 +1,39 @@
+{
+  "pasos": [
+    {
+      "paso": "eliminacion_duplicados",
+      "duplicados_eliminados": 0
+    },
+    {
+      "paso": "manejo_nulos",
+      "politica": "descartar filas con nulos en métricas críticas (sin imputación)",
+      "nulos_por_columna": {
+        "pais": 0,
+        "cultivo": 0,
+        "anio": 0,
+        "rendimiento_hg_ha": 0,
+        "precipitacion_mm": 0,
+        "pesticidas_ton": 0,
+        "temperatura_media_c": 0
+      },
+      "filas_descartadas": 0
+    },
+    {
+      "paso": "validacion_rangos_fisicos",
+      "filas_fuera_de_rango": 0
+    },
+    {
+      "paso": "resumen_rendimiento",
+      "filas_iniciales": 34113,
+      "filas_finales": 34113
+    },
+    {
+      "paso": "cumplimiento_normativo",
+      "verificacion": "fuente interna sin columnas PII; proveedores solo con código anónimo"
+    },
+    {
+      "paso": "consistencia_referencial",
+      "resultado": "todas las claves foráneas de los hechos existen en las dimensiones"
+    }
+  ]
+}

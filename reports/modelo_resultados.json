@@ -1,0 +1,84 @@
+{
+  "problema": "Regresión — rendimiento agrícola (ton/ha)",
+  "particion": {
+    "entrenamiento": 27290,
+    "prueba": 6823
+  },
+  "metricas_por_modelo": {
+    "Regresión Lineal": {
+      "rmse_ton_ha": 4.613,
+      "mae_ton_ha": 3.117,
+      "r2": 0.6792,
+      "r2_validacion_cruzada_media": 0.6676,
+      "r2_validacion_cruzada_desv": 0.0067
+    },
+    "Árbol de Decisión": {
+      "rmse_ton_ha": 3.045,
+      "mae_ton_ha": 1.804,
+      "r2": 0.8602,
+      "r2_validacion_cruzada_media": 0.8342,
+      "r2_validacion_cruzada_desv": 0.0076
+    },
+    "Random Forest": {
+      "rmse_ton_ha": 1.638,
+      "mae_ton_ha": 0.811,
+      "r2": 0.9595,
+      "r2_validacion_cruzada_media": 0.9384,
+      "r2_validacion_cruzada_desv": 0.0036
+    }
+  },
+  "modelo_ganador": "Random Forest",
+  "xai_importancia_permutacion": {
+    "Año": 0.0892,
+    "Lluvia anual (mm)": 0.1198,
+    "Temperatura media (°C)": 0.2146,
+    "Pesticidas (ton)": 0.2703,
+    "País": 0.37,
+    "Tipo de cultivo": 1.4238
+  },
+  "sesgo_representacion": {
+    "descripcion": "El dataset sobrerrepresenta países con series históricas largas y cultivos de clima templado. Un modelo entrenado así puede predecir peor en países/cultivos poco representados; se reporta el error por grupo para transparentar esta limitación.",
+    "paises_mas_representados": {
+      "Cameroon": 340,
+      "Democratic Republic of the Congo": 340,
+      "Kenya": 340,
+      "United Republic of Tanzania": 340,
+      "Venezuela (Bolivarian Republic of)": 340
+    },
+    "paises_menos_representados": {
+      "Bahrain": 40,
+      "Djibouti": 34,
+      "Faroe Islands": 34,
+      "Iceland": 34,
+      "Seychelles": 34
+    },
+    "filas_ecuador": 306,
+    "cultivos": {
+      "Maize": 5120,
+      "Potatoes": 4908,
+      "Wheat": 3932,
+      "Rice, paddy": 3739,
+      "Sweet potatoes": 3495,
+      "Sorghum": 3439,
+      "Cassava": 3130,
+      "Soybeans": 3072,
+      "Yams": 1748,
+      "Plantains and others": 1530
+    }
+  },
+  "error_por_grupo": {
+    "rmse_por_cultivo": {
+      "Cassava": 2.069,
+      "Maize": 1.069,
+      "Plantains and others": 1.963,
+      "Potatoes": 2.863,
+      "Rice, paddy": 0.587,
+      "Sorghum": 1.147,
+      "Soybeans": 0.344,
+      "Sweet potatoes": 1.808,
+      "Wheat": 0.535,
+      "Yams": 1.88
+    },
+    "rmse_ecuador": 0.727
+  }
+}

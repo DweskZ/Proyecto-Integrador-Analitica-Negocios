@@ -1,0 +1,183 @@
+{
+  "estadisticas_descriptivas": {
+    "rendimiento_ton_ha": {
+      "etiqueta": "Rendimiento (ton/ha)",
+      "media": 7.267,
+      "mediana": 4.174,
+      "desv_estandar": 8.135,
+      "rango_intercuartilico": 7.971,
+      "coef_variacion_pct": 111.9,
+      "minimo": 0.0,
+      "maximo": 102.82,
+      "asimetria": 2.269,
+      "curtosis": 7.535
+    },
+    "precipitacion_mm": {
+      "etiqueta": "Precipitación anual (mm)",
+      "media": 1263.259,
+      "mediana": 1156.4,
+      "desv_estandar": 794.432,
+      "rango_intercuartilico": 1129.8,
+      "coef_variacion_pct": 62.9,
+      "minimo": 10.9,
+      "maximo": 4862.8,
+      "asimetria": 0.672,
+      "curtosis": 0.223
+    },
+    "temperatura_media_c": {
+      "etiqueta": "Temperatura media (°C)",
+      "media": 20.765,
+      "mediana": 23.77,
+      "desv_estandar": 7.151,
+      "rango_intercuartilico": 9.74,
+      "coef_variacion_pct": 34.4,
+      "minimo": -5.37,
+      "maximo": 30.04,
+      "asimetria": -1.145,
+      "curtosis": 0.491
+    },
+    "pesticidas_ton": {
+      "etiqueta": "Pesticidas (ton)",
+      "media": 18766.508,
+      "mediana": 1742.0,
+      "desv_estandar": 61024.989,
+      "rango_intercuartilico": 9511.0,
+      "coef_variacion_pct": 325.2,
+      "minimo": 0.0,
+      "maximo": 800652.0,
+      "asimetria": 6.243,
+      "curtosis": 47.67
+    }
+  },
+  "estadisticas_ecuador": {
+    "rendimiento_ton_ha": {
+      "etiqueta": "Rendimiento (ton/ha)",
+      "media": 3.716,
+      "mediana": 2.851,
+      "desv_estandar": 3.011,
+      "rango_intercuartilico": 3.298,
+      "coef_variacion_pct": 81.0,
+      "minimo": 0.57,
+      "maximo": 16.41,
+      "asimetria": 1.58,
+      "curtosis": 2.525
+    },
+    "precipitacion_mm": {
+      "etiqueta": "Precipitación anual (mm)",
+      "media": 2099.215,
+      "mediana": 2039.2,
+      "desv_estandar": 345.445,
+      "rango_intercuartilico": 581.8,
+      "coef_variacion_pct": 16.5,
+      "minimo": 1478.4,
+      "maximo": 3064.3,
+      "asimetria": 0.644,
+      "curtosis": 0.074
+    },
+    "temperatura_media_c": {
+      "etiqueta": "Temperatura media (°C)",
+      "media": 21.515,
+      "mediana": 21.495,
+      "desv_estandar": 0.409,
+      "rango_intercuartilico": 0.58,
+      "coef_variacion_pct": 1.9,
+      "minimo": 20.79,
+      "maximo": 22.33,
+      "asimetria": 0.257,
+      "curtosis": -0.634
+    },
+    "pesticidas_ton": {
+      "etiqueta": "Pesticidas (ton)",
+      "media": 18659.676,
+      "mediana": 16462.5,
+      "desv_estandar": 13660.319,
+      "rango_intercuartilico": 25165.0,
+      "coef_variacion_pct": 73.2,
+      "minimo": 1302.0,
+      "maximo": 44565.0,
+      "asimetria": 0.232,
+      "curtosis": -1.402
+    }
+  },
+  "correlaciones": {
+    "pearson": {
+      "rendimiento_ton_ha": {
+        "rendimiento_ton_ha": 1.0,
+        "precipitacion_mm": -0.003,
+        "temperatura_media_c": -0.103,
+        "pesticidas_ton": 0.093
+      },
+      "precipitacion_mm": {
+        "rendimiento_ton_ha": -0.003,
+        "precipitacion_mm": 1.0,
+        "temperatura_media_c": 0.361,
+        "pesticidas_ton": -0.019
+      },
+      "temperatura_media_c": {
+        "rendimiento_ton_ha": -0.103,
+        "precipitacion_mm": 0.361,
+        "temperatura_media_c": 1.0,
+        "pesticidas_ton": -0.167
+      },
+      "pesticidas_ton": {
+        "rendimiento_ton_ha": 0.093,
+        "precipitacion_mm": -0.019,
+        "temperatura_media_c": -0.167,
+        "pesticidas_ton": 1.0
+      }
+    },
+    "spearman": {
+      "rendimiento_ton_ha": {
+        "rendimiento_ton_ha": 1.0,
+        "precipitacion_mm": 0.048,
+        "temperatura_media_c": -0.08,
+        "pesticidas_ton": 0.162
+      },
+      "precipitacion_mm": {
+        "rendimiento_ton_ha": 0.048,
+        "precipitacion_mm": 1.0,
+        "temperatura_media_c": 0.346,
+        "pesticidas_ton": -0.077
+      },
+      "temperatura_media_c": {
+        "rendimiento_ton_ha": -0.08,
+        "precipitacion_mm": 0.346,
+        "temperatura_media_c": 1.0,
+        "pesticidas_ton": -0.33
+      },
+      "pesticidas_ton": {
+        "rendimiento_ton_ha": 0.162,
+        "precipitacion_mm": -0.077,
+        "temperatura_media_c": -0.33,
+        "pesticidas_ton": 1.0
+      }
+    }
+  },
+  "kpis": {
+    "KPI_1_rendimiento_promedio_ton_ha": {
+      "nombre": "Rendimiento promedio Ecuador (ton/ha, últimos 5 años)",
+      "valor": 4.61,
+      "objetivo_analitico": "Descriptivo — nivel base de oferta esperada"
+    },
+    "KPI_2_variabilidad_rendimiento_pct": {
+      "nombre": "Coeficiente de variación interanual del rendimiento (%)",
+      "valor": 31.2,
+      "objetivo_analitico": "Diagnóstico — cuantifica el riesgo de oferta"
+    },
+    "KPI_3_margen_bruto_pct": {
+      "nombre": "Margen bruto de reventa (%)",
+      "valor": 21.4,
+      "objetivo_analitico": "Descriptivo — salud económica del negocio"
+    },
+    "KPI_4_merma_promedio_pct": {
+      "nombre": "Merma promedio por orden de compra (%)",
+      "valor": 5.5,
+      "objetivo_analitico": "Diagnóstico — pérdidas por deterioro/sobrestock"
+    },
+    "KPI_5_concentracion_top3_pct": {
+      "nombre": "Concentración del volumen en top 3 cultivos (%)",
+      "valor": 62.9,
+      "objetivo_analitico": "Prescriptivo — riesgo de portafolio de compras"
+    }
+  }
+}

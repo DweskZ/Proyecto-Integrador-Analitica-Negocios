@@ -1,0 +1,10 @@
+cultivo,anio_objetivo,rendimiento_predicho_ton_ha,rendimiento_promedio_historico_ton_ha,indice_oferta,decision,volumen_historico_ton,volumen_recomendado_ton,justificacion
+Maíz,2024,4.42,2.34,1.891,AUMENTAR compra,2178.1,2504.8,Oferta esperada abundante: comprar más a mejor precio
+Trigo,2024,1.51,0.94,1.613,AUMENTAR compra,933.9,1074.0,Oferta esperada abundante: comprar más a mejor precio
+Yuca,2024,6.37,4.45,1.43,AUMENTAR compra,4159.4,4783.3,Oferta esperada abundante: comprar más a mejor precio
+Papa,2024,13.27,9.33,1.422,AUMENTAR compra,8804.5,10125.2,Oferta esperada abundante: comprar más a mejor precio
+Arroz en cáscara,2024,3.98,3.59,1.109,AUMENTAR compra,1916.3,2203.8,Oferta esperada abundante: comprar más a mejor precio
+Sorgo,2024,1.69,1.61,1.046,MANTENER volumen,1210.2,1210.2,Escenario neutro: mantener plan histórico
+Plátano y otros,2024,6.97,7.06,0.988,MANTENER volumen,3097.0,3097.0,Escenario neutro: mantener plan histórico
+Camote,2024,2.32,2.56,0.907,REDUCIR compra,1132.8,962.8,Riesgo de escasez: asegurar contratos y no sobrepagar
+Soya,2024,1.36,1.55,0.874,REDUCIR compra,1105.4,939.6,Riesgo de escasez: asegurar contratos y no sobrepagar

@@ -1,0 +1,15 @@
+{
+  "name": "AgroComercial del Litoral",
+  "dataColors": ["#2E7D32", "#66BB6A", "#8D6E63", "#F9A825", "#C62828", "#1565C0", "#558B2F", "#A1887F"],
+  "background": "#FFFFFF",
+  "foreground": "#212121",
+  "tableAccent": "#2E7D32",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [{ "fontSize": 12, "fontFamily": "Segoe UI Semibold", "color": { "solid": { "color": "#212121" } } }],
+        "labels": [{ "fontSize": 10, "fontFamily": "Segoe UI" }]
+      }
+    }
+  }
+}
