@@ -60,11 +60,12 @@ python src/informe/generar_informe.py        # 8. Informe técnico
 streamlit run dashboard/app.py
 ```
 
-Cinco pestañas: los 4 pilares analíticos —Descriptiva, Diagnóstica,
-Predictiva (simulador en vivo con el modelo) y Prescriptiva (plan de compras)—
-más **Datos**, que muestra el esquema estrella (diagrama de hechos y
-dimensiones), un explorador de las tablas crudas con búsqueda y descarga CSV,
-y el reporte de calidad del ETL.
+Seis pestañas: los 4 pilares analíticos —Descriptiva, Diagnóstica, Predictiva
+(simulador en vivo con el modelo + optimizador de insumos pesticidas × lluvia)
+y Prescriptiva (plan de compras)— más **Rentabilidad** (comparación mensual
+del margen de compra por cultivo con heatmap de estacionalidad) y **Datos**
+(diagrama del esquema estrella, explorador de las tablas crudas con búsqueda
+y descarga CSV, y reporte de calidad del ETL).
 Para el archivo Power BI, seguir `powerbi/GUIA_POWER_BI.md`.
 
 ## Resultados clave

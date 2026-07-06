@@ -5,6 +5,7 @@ from dashboard.tabs.descriptiva import renderizar_descriptiva
 from dashboard.tabs.diagnostica import renderizar_diagnostica
 from dashboard.tabs.predictiva import renderizar_predictiva
 from dashboard.tabs.prescriptiva import renderizar_prescriptiva
+from dashboard.tabs.rentabilidad import renderizar_rentabilidad
 
 __all__ = [
     "renderizar_datos",
@@ -12,4 +13,5 @@ __all__ = [
     "renderizar_diagnostica",
     "renderizar_predictiva",
     "renderizar_prescriptiva",
+    "renderizar_rentabilidad",
 ]

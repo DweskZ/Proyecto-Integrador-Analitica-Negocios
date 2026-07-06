@@ -47,6 +47,7 @@ from dashboard.tabs import (
     renderizar_diagnostica,
     renderizar_predictiva,
     renderizar_prescriptiva,
+    renderizar_rentabilidad,
 )
 from dashboard.theme import inyectar_css, registrar_tema_plotly
 
@@ -119,9 +120,10 @@ tarjeta_kpi(k5, "Concentración top 3 cultivos", f"{concentracion:.1f}", "%", "P
 
 st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
 
-# ------------------- Pestañas: 4 pilares + datos crudos ----------------------
-tab_desc, tab_diag, tab_pred, tab_presc, tab_datos = st.tabs(
-    ["📊  Descriptiva", "🔍  Diagnóstica", "🤖  Predictiva", "🎯  Prescriptiva", "🗄️  Datos"]
+# ------------- Pestañas: 4 pilares + rentabilidad + datos crudos -------------
+tab_desc, tab_diag, tab_pred, tab_presc, tab_rent, tab_datos = st.tabs(
+    ["📊  Descriptiva", "🔍  Diagnóstica", "🤖  Predictiva", "🎯  Prescriptiva",
+     "💰  Rentabilidad", "🗄️  Datos"]
 )
 
 with tab_desc:
@@ -135,6 +137,9 @@ with tab_pred:
 
 with tab_presc:
     renderizar_prescriptiva(recomendaciones)
+
+with tab_rent:
+    renderizar_rentabilidad(compras_f)
 
 with tab_datos:
     renderizar_datos(cargar_tablas_estrella(), cargar_reporte_calidad())
