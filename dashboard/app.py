@@ -80,6 +80,14 @@ st.markdown(
 html, body, [class*="css"], [data-testid="stAppViewContainer"] * {{
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }}
+/* restaurar la fuente de iconos: el selector universal de arriba la pisaba y
+   los iconos se veían como texto crudo (p. ej. "keyboard_double_arrow_left") */
+[data-testid="stIconMaterial"],
+span[class*="material-icons"],
+span[class*="material-symbols"] {{
+    font-family: 'Material Symbols Rounded', 'Material Symbols Outlined',
+                 'Material Icons' !important;
+}}
 [data-testid="stAppViewContainer"] {{
     background: {FONDO};
 }}
@@ -92,9 +100,35 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] * {{
 [data-testid="stSidebar"] * {{
     color: #E8F2EA !important;
 }}
+/* control del multiselect: fondo translúcido oscuro para que el texto claro se lea */
+[data-testid="stSidebar"] [data-baseweb="select"] > div {{
+    background-color: rgba(255,255,255,.07) !important;
+    border-color: rgba(255,255,255,.22) !important;
+    border-radius: 8px;
+}}
+[data-testid="stSidebar"] [data-baseweb="select"] > div:hover {{
+    border-color: rgba(255,255,255,.4) !important;
+}}
+[data-testid="stSidebar"] [data-baseweb="select"] input {{
+    color: #E8F2EA !important;
+}}
+/* chips de cultivos seleccionados: verde legible con texto blanco */
 [data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] {{
-    background: rgba(255,255,255,.14) !important;
+    background: {VERDE} !important;
     border-radius: 6px;
+}}
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] span,
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] svg {{
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+}}
+/* iconos de flecha y limpiar del selector */
+[data-testid="stSidebar"] [data-baseweb="select"] svg {{
+    fill: #C7D8CB !important;
+}}
+/* menú desplegable (portal en el cuerpo): texto oscuro sobre blanco */
+[data-baseweb="popover"] [role="option"] {{
+    color: {TINTA} !important;
 }}
 [data-testid="stSidebar"] hr {{
     border-color: rgba(255,255,255,.15);
@@ -612,7 +646,11 @@ with tab_presc:
     )
     fig.add_vline(x=1.0, line_dash="dash", line_color=TINTA_SUAVE)
     fig.update_traces(textposition="outside", textfont_size=11)
-    fig.update_layout(height=470)
+    fig.update_layout(
+        height=470,
+        legend=dict(orientation="h", yanchor="top", y=-0.14, xanchor="left", x=0),
+        margin=dict(t=60, b=10),
+    )
     with col_grafico.container(border=False):
         st.plotly_chart(fig, width='stretch')
 
