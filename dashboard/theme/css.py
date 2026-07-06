@@ -316,6 +316,9 @@ div[data-testid="stDataFrame"] {{
 }}
 
 footer, [data-testid="stToolbar"] {{ visibility: hidden; }}
+/* el botón de reabrir la sidebar vive DENTRO del stToolbar oculto; visibility
+   (a diferencia de display) se puede revertir en un descendiente */
+[data-testid="stExpandSidebarButton"] {{ visibility: visible; }}
 </style>
 """,
         unsafe_allow_html=True,
