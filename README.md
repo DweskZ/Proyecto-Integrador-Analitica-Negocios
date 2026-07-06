@@ -26,7 +26,7 @@ Excel compras (sin PII)     ─┘                        dim_cultivo/geo/tiempo
 | `src/analytics/eda.py` | EDA: estadísticas, distribuciones, correlaciones, KPIs |
 | `src/models/` | Entrenamiento (3 algoritmos), XAI, sesgos y regla prescriptiva |
 | `src/informe/` | Generador del informe técnico (DOCX → PDF) |
-| `dashboard/app.py` | Dashboard interactivo (Streamlit + Plotly) |
+| `dashboard/` | Dashboard interactivo (Streamlit + Plotly): `app.py` + paquetes `theme/`, `data/`, `components/`, `tabs/` |
 | `powerbi/` | Guía paso a paso de Power BI, medidas DAX y tema de color |
 | `data/processed/` | Esquema estrella en CSV (listo para importar a Power BI) |
 | `reports/` | Figuras, resultados del EDA/modelo y recomendaciones de compra |
@@ -60,8 +60,11 @@ python src/informe/generar_informe.py        # 8. Informe técnico
 streamlit run dashboard/app.py
 ```
 
-Cuatro pestañas alineadas a los 4 pilares: Descriptiva, Diagnóstica,
-Predictiva (simulador en vivo con el modelo) y Prescriptiva (plan de compras).
+Cinco pestañas: los 4 pilares analíticos —Descriptiva, Diagnóstica,
+Predictiva (simulador en vivo con el modelo) y Prescriptiva (plan de compras)—
+más **Datos**, que muestra el esquema estrella (diagrama de hechos y
+dimensiones), un explorador de las tablas crudas con búsqueda y descarga CSV,
+y el reporte de calidad del ETL.
 Para el archivo Power BI, seguir `powerbi/GUIA_POWER_BI.md`.
 
 ## Resultados clave
