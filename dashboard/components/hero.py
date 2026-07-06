@@ -10,13 +10,13 @@ def renderizar_hero(resultados_modelo: dict) -> None:
     st.markdown(
         f"""
 <div class="hero">
-  <h1>🌾 AgroComercial del Litoral S.A.</h1>
+  <h1><span class="icono-material">agriculture</span> AgroComercial del Litoral S.A.</h1>
   <p>Dashboard estratégico · Predicción del rendimiento de cosechas y planificación de compras</p>
   <div class="badges">
-    <span class="badge">📡 FAOSTAT + Banco Mundial (API pública)</span>
-    <span class="badge">🇪🇨 Ecuador · 1990–2023</span>
-    <span class="badge">🤖 {ganador} · R² {r2:.2f}</span>
-    <span class="badge">🔒 Datos sin PII</span>
+    <span class="badge"><span class="icono-material">satellite_alt</span> FAOSTAT + Banco Mundial (API pública)</span>
+    <span class="badge"><span class="icono-material">flag</span> Ecuador · 1990–2023</span>
+    <span class="badge"><span class="icono-material">smart_toy</span> {ganador} · R² {r2:.2f}</span>
+    <span class="badge"><span class="icono-material">lock</span> Datos sin PII</span>
   </div>
 </div>
 """,

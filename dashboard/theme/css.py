@@ -32,6 +32,19 @@ span[class*="material-symbols"] {{
     font-family: 'Material Symbols Rounded', 'Material Symbols Outlined',
                  'Material Icons' !important;
 }}
+/* iconos Material Symbols dentro de nuestro HTML (hero, tarjetas, notas):
+   la fuente ya la carga Streamlit; la ligadura convierte el nombre en icono */
+.icono-material {{
+    font-family: 'Material Symbols Rounded', 'Material Symbols Outlined',
+                 'Material Icons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.15em;
+    line-height: 1;
+    letter-spacing: normal;
+    display: inline-block;
+    vertical-align: -0.18em;
+}}
 [data-testid="stAppViewContainer"] {{
     background: {FONDO};
 }}
@@ -314,6 +327,55 @@ div[data-testid="stDataFrame"] {{
     border-radius: 6px;
     padding: 3px 9px;
 }}
+
+/* ---------------- tarjetas de etapas del pipeline (pestaña Datos) ---------------- */
+.stage-card {{
+    background: white;
+    border: 1px solid #E4ECE2;
+    border-left: 5px solid {VERDE};
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(28,43,33,.05);
+}}
+.stage-card .titulo {{
+    font-weight: 700;
+    font-size: .9rem;
+    color: {TINTA};
+    margin-bottom: 4px;
+}}
+.stage-card .fase {{
+    float: right;
+    font-size: .66rem;
+    font-weight: 700;
+    color: #8A6D00;
+    background: #FDF3D5;
+    border-radius: 999px;
+    padding: 3px 10px;
+    letter-spacing: .03em;
+}}
+.stage-card .detalle {{
+    font-size: .8rem;
+    color: {TINTA_SUAVE};
+}}
+.stage-card .script {{
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: .72rem;
+    color: {VERDE_OSCURO};
+    background: #F1F5EF;
+    border-radius: 6px;
+    padding: 3px 8px;
+    display: inline-block;
+    margin-top: 8px;
+}}
+.stage-card .artefactos {{
+    font-size: .76rem;
+    color: {TINTA_SUAVE};
+    margin-top: 8px;
+    line-height: 1.6;
+}}
+.stage-card .artefactos .ok {{ color: {VERDE}; font-weight: 600; }}
+.stage-card .artefactos .falta {{ color: {ROJO}; font-weight: 600; }}
 
 footer, [data-testid="stToolbar"] {{ visibility: hidden; }}
 /* el botón de reabrir la sidebar vive DENTRO del stToolbar oculto; visibility

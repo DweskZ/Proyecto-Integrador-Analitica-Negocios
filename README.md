@@ -64,8 +64,9 @@ Seis pestañas: los 4 pilares analíticos —Descriptiva, Diagnóstica, Predicti
 (simulador en vivo con el modelo + optimizador de insumos pesticidas × lluvia)
 y Prescriptiva (plan de compras)— más **Rentabilidad** (comparación mensual
 del margen de compra por cultivo con heatmap de estacionalidad) y **Datos**
-(diagrama del esquema estrella, explorador de las tablas crudas con búsqueda
-y descarga CSV, y reporte de calidad del ETL).
+(diagrama del pipeline completo con el estado en disco de cada etapa, diagrama
+del esquema estrella, explorador de las tablas crudas con búsqueda y descarga
+CSV, y reporte de calidad del ETL).
 Para el archivo Power BI, seguir `powerbi/GUIA_POWER_BI.md`.
 
 ## Resultados clave

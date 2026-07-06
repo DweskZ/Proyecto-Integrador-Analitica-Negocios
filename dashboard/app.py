@@ -55,7 +55,7 @@ silenciar_conn_reset_windows()
 
 st.set_page_config(
     page_title="AgroComercial del Litoral — Analítica de Compras",
-    page_icon="🌾",
+    page_icon=":material/agriculture:",
     layout="wide",
 )
 registrar_tema_plotly()
@@ -69,7 +69,7 @@ renderizar_hero(resultados_modelo)
 
 # ----------------------------- Filtros ---------------------------------------
 with st.sidebar:
-    st.markdown("### ⚙️ Filtros")
+    st.markdown("### :material/tune: Filtros")
     cultivos_sel = st.multiselect(
         "Cultivos",
         sorted(ecuador["cultivo_es"].unique()),
@@ -122,8 +122,9 @@ st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
 
 # ------------- Pestañas: 4 pilares + rentabilidad + datos crudos -------------
 tab_desc, tab_diag, tab_pred, tab_presc, tab_rent, tab_datos = st.tabs(
-    ["📊  Descriptiva", "🔍  Diagnóstica", "🤖  Predictiva", "🎯  Prescriptiva",
-     "💰  Rentabilidad", "🗄️  Datos"]
+    [":material/bar_chart: Descriptiva", ":material/query_stats: Diagnóstica",
+     ":material/smart_toy: Predictiva", ":material/track_changes: Prescriptiva",
+     ":material/payments: Rentabilidad", ":material/database: Datos"]
 )
 
 with tab_desc:

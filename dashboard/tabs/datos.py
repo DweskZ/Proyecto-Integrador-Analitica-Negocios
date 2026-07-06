@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+from dashboard.tabs.pipeline import renderizar_pipeline
 from dashboard.theme import TINTA, TINTA_SUAVE, VERDE, VERDE_OSCURO
 
 # Posiciones (x, y) de cada tabla en el diagrama estrella.
@@ -105,13 +106,14 @@ def _renderizar_explorador(tablas: dict[str, dict]) -> None:
 
     col_busqueda, col_descarga = st.columns((3, 1), vertical_alignment="bottom")
     consulta = col_busqueda.text_input(
-        "🔎 Buscar en la tabla", placeholder="p. ej. Maíz, Ecuador, 2020…", key=f"busqueda_{nombre}"
+        ":material/search: Buscar en la tabla", placeholder="p. ej. Maíz, Ecuador, 2020…", key=f"busqueda_{nombre}"
     )
     col_descarga.download_button(
-        "⬇️ Descargar CSV completo",
+        "Descargar CSV completo",
         data=df.to_csv(index=False).encode("utf-8"),
         file_name=f"{nombre}.csv",
         mime="text/csv",
+        icon=":material/download:",
         width='stretch',
     )
 
@@ -129,7 +131,7 @@ def _renderizar_explorador(tablas: dict[str, dict]) -> None:
     else:
         st.caption(f"{len(filtrado):,} filas mostradas.")
 
-    with st.expander("📋 Columnas y tipos de dato"):
+    with st.expander("Columnas y tipos de dato", icon=":material/table_chart:"):
         esquema = pd.DataFrame(
             {
                 "columna": df.columns,
@@ -141,14 +143,15 @@ def _renderizar_explorador(tablas: dict[str, dict]) -> None:
         st.dataframe(esquema, width='stretch', hide_index=True)
 
 
-# Presentación amigable de cada paso del reporte de calidad del ETL.
+# Presentación amigable de cada paso del reporte de calidad del ETL
+# (icono Material Symbols + título).
 _PASOS_CALIDAD = {
-    "eliminacion_duplicados": ("🧹", "Eliminación de duplicados"),
-    "manejo_nulos": ("🕳️", "Manejo de valores nulos"),
-    "validacion_rangos_fisicos": ("📏", "Validación de rangos físicos"),
-    "resumen_rendimiento": ("📊", "Resumen del procesamiento"),
-    "cumplimiento_normativo": ("🔒", "Cumplimiento normativo (PII)"),
-    "consistencia_referencial": ("🔗", "Consistencia referencial"),
+    "eliminacion_duplicados": ("cleaning_services", "Eliminación de duplicados"),
+    "manejo_nulos": ("rule", "Manejo de valores nulos"),
+    "validacion_rangos_fisicos": ("straighten", "Validación de rangos físicos"),
+    "resumen_rendimiento": ("bar_chart", "Resumen del procesamiento"),
+    "cumplimiento_normativo": ("lock", "Cumplimiento normativo (PII)"),
+    "consistencia_referencial": ("link", "Consistencia referencial"),
 }
 
 
@@ -168,11 +171,11 @@ def _renderizar_reporte_calidad(reporte: dict) -> None:
     pasos = reporte.get("pasos", [])
     columnas = st.columns(3)
     for i, paso in enumerate(pasos):
-        icono, titulo = _PASOS_CALIDAD.get(paso["paso"], ("✅", paso["paso"]))
+        icono, titulo = _PASOS_CALIDAD.get(paso["paso"], ("check_circle", paso["paso"]))
         columnas[i % 3].markdown(
             f"""
 <div class="quality-card">
-  <div class="titulo">{icono} {titulo}</div>
+  <div class="titulo"><span class="icono-material">{icono}</span> {titulo}</div>
   <div class="detalle">{_detalle_paso(paso)}</div>
   <span class="ok">VERIFICADO</span>
 </div>
@@ -186,16 +189,20 @@ def renderizar_datos(tablas: dict[str, dict], reporte_calidad: dict) -> None:
     st.markdown(
         """
 <div class="section-note">
-<b>Datos crudos del modelo dimensional</b> — el pipeline ETL produce un
-<b>esquema estrella</b>: dos tablas de hechos (rendimiento y compras) rodeadas de
-dimensiones compartidas (cultivo, tiempo) y propias (geografía, proveedor).
-Aquí puedes inspeccionar cada tabla tal como se carga en Power BI y verificar
-la calidad del procesamiento.
+<b>Datos crudos del modelo dimensional</b> — aquí se ve <b>cómo se construye</b>
+la solución de punta a punta: el pipeline que va de las fuentes públicas al
+<b>esquema estrella</b> (dos tablas de hechos rodeadas de dimensiones compartidas
+—cultivo, tiempo— y propias —geografía, proveedor—), el explorador de cada tabla
+tal como se carga en Power BI, y la calidad del procesamiento.
 </div>
 """,
         unsafe_allow_html=True,
     )
 
+    st.markdown("#### :material/account_tree: Pipeline del dato")
+    renderizar_pipeline()
+
+    st.markdown("#### :material/hub: Modelo estrella")
     with st.container(border=False):
         st.plotly_chart(
             _figura_modelo_estrella(tablas),
@@ -203,8 +210,8 @@ la calidad del procesamiento.
             config={"displayModeBar": False},
         )
 
-    st.markdown("#### 🔍 Explorador de tablas")
+    st.markdown("#### :material/search: Explorador de tablas")
     _renderizar_explorador(tablas)
 
-    st.markdown("#### ✅ Reporte de calidad del ETL")
+    st.markdown("#### :material/check_circle: Reporte de calidad del ETL")
     _renderizar_reporte_calidad(reporte_calidad)

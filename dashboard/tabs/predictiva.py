@@ -49,7 +49,7 @@ def _renderizar_optimizador(
     st.markdown(
         f"""
 <div class="section-note">
-<b>🧪 ¿Qué combinación de insumos conviene? (según el modelo)</b> — con la lluvia
+<b><span class="icono-material">science</span> ¿Qué combinación de insumos conviene? (según el modelo)</b> — con la lluvia
 (~{lluvia_cercana:,} mm) y temperatura ({temp_sim:.1f} °C) de tu escenario, el nivel de
 pesticidas que maximiza el rendimiento predicho de {cultivo_sim.lower()} es
 <b>{optimo_local["pesticidas_ton"]:,.0f} ton</b> →
@@ -79,10 +79,11 @@ no establece causalidad.
     fig.add_trace(
         go.Scatter(
             x=[optimo_global["precipitacion_mm"]], y=[optimo_global["pesticidas_ton"]],
-            mode="markers+text", text=["⭐"], textfont=dict(size=16),
-            marker=dict(size=1, color=VERDE),
+            mode="markers",
+            marker=dict(size=14, symbol="star", color=VERDE,
+                        line=dict(color="white", width=1)),
             name="máximo del modelo", hovertemplate=(
-                "⭐ Máximo del modelo<br>Lluvia: %{x:,} mm<br>"
+                "Máximo del modelo<br>Lluvia: %{x:,} mm<br>"
                 "Pesticidas: %{y:,} ton<extra></extra>"
             ),
         )
@@ -90,10 +91,11 @@ no establece causalidad.
     fig.add_trace(
         go.Scatter(
             x=[lluvia_sim], y=[pest_sim],
-            mode="markers+text", text=["✕"], textfont=dict(size=14, color=AMBAR),
-            marker=dict(size=1, color=AMBAR),
+            mode="markers",
+            marker=dict(size=11, symbol="x", color=AMBAR,
+                        line=dict(color="white", width=1)),
             name="escenario actual", hovertemplate=(
-                "✕ Escenario actual<br>Lluvia: %{x:,} mm<br>"
+                "Escenario actual<br>Lluvia: %{x:,} mm<br>"
                 "Pesticidas: %{y:,} ton<extra></extra>"
             ),
         )
@@ -130,9 +132,9 @@ Ajusta las condiciones del próximo ciclo y observa el rendimiento esperado al i
         cultivo_map = dict(ecuador[["cultivo_es", "cultivo"]].drop_duplicates().itertuples(index=False))
         cultivo_sim = st.selectbox("Cultivo", sorted(cultivo_map))
         c1, c2 = st.columns(2)
-        lluvia_sim = c1.slider("🌧️ Lluvia anual (mm)", 200, 4000, int(ecuador["precipitacion_mm"].mean()))
-        temp_sim = c2.slider("🌡️ Temperatura media (°C)", 5.0, 35.0, float(round(ecuador["temperatura_media_c"].mean(), 1)))
-        pest_sim = st.slider("🧪 Pesticidas (ton)", 0, 20000, int(ecuador["pesticidas_ton"].mean()))
+        lluvia_sim = c1.slider(":material/rainy: Lluvia anual (mm)", 200, 4000, int(ecuador["precipitacion_mm"].mean()))
+        temp_sim = c2.slider(":material/thermostat: Temperatura media (°C)", 5.0, 35.0, float(round(ecuador["temperatura_media_c"].mean(), 1)))
+        pest_sim = st.slider(":material/science: Pesticidas (ton)", 0, 20000, int(ecuador["pesticidas_ton"].mean()))
 
     escenario = pd.DataFrame(
         [{

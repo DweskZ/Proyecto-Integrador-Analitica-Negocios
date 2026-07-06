@@ -1,6 +1,7 @@
 """Pestañas del dashboard: los cuatro pilares analíticos + datos crudos."""
 
 from dashboard.tabs.datos import renderizar_datos
+from dashboard.tabs.pipeline import renderizar_pipeline
 from dashboard.tabs.descriptiva import renderizar_descriptiva
 from dashboard.tabs.diagnostica import renderizar_diagnostica
 from dashboard.tabs.predictiva import renderizar_predictiva
@@ -11,6 +12,7 @@ __all__ = [
     "renderizar_datos",
     "renderizar_descriptiva",
     "renderizar_diagnostica",
+    "renderizar_pipeline",
     "renderizar_predictiva",
     "renderizar_prescriptiva",
     "renderizar_rentabilidad",
