@@ -18,6 +18,7 @@ Ejecutar:  streamlit run dashboard/app.py
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import joblib
@@ -26,6 +27,29 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 import streamlit as st
+
+# --- Silenciar traceback benigno de asyncio en Windows -----------------------
+# En Windows, cuando el navegador cierra su conexión con el servidor Tornado de
+# Streamlit, el bucle asyncio (ProactorEventLoop) lanza un ConnectionResetError
+# no capturado (WinError 10054) dentro de
+# _ProactorBasePipeTransport._call_connection_lost y vuelca ese traceback a la
+# consola. Es inofensivo. Envolvemos ese método UNA sola vez (Streamlit reejecuta
+# el script en cada interacción) para descartar solo ese error concreto.
+if sys.platform == "win32":
+    from asyncio.proactor_events import _ProactorBasePipeTransport
+
+    if not getattr(
+        _ProactorBasePipeTransport._call_connection_lost, "_conn_reset_silenciado", False
+    ):
+        _call_connection_lost_original = _ProactorBasePipeTransport._call_connection_lost
+
+        def _call_connection_lost(self, exc):
+            if isinstance(exc, ConnectionResetError):
+                return None
+            return _call_connection_lost_original(self, exc)
+
+        _call_connection_lost._conn_reset_silenciado = True
+        _ProactorBasePipeTransport._call_connection_lost = _call_connection_lost
 
 RUTA_PROYECTO = Path(__file__).resolve().parents[1]
 RUTA_PROCESSED = RUTA_PROYECTO / "data" / "processed"
@@ -80,6 +104,14 @@ st.markdown(
 html, body, [class*="css"], [data-testid="stAppViewContainer"] * {{
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }}
+/* restaurar la fuente de iconos: el selector universal de arriba la pisaba y
+   los iconos se veían como texto crudo (p. ej. "keyboard_double_arrow_left") */
+[data-testid="stIconMaterial"],
+span[class*="material-icons"],
+span[class*="material-symbols"] {{
+    font-family: 'Material Symbols Rounded', 'Material Symbols Outlined',
+                 'Material Icons' !important;
+}}
 [data-testid="stAppViewContainer"] {{
     background: {FONDO};
 }}
@@ -92,9 +124,35 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] * {{
 [data-testid="stSidebar"] * {{
     color: #E8F2EA !important;
 }}
+/* control del multiselect: fondo translúcido oscuro para que el texto claro se lea */
+[data-testid="stSidebar"] [data-baseweb="select"] > div {{
+    background-color: rgba(255,255,255,.07) !important;
+    border-color: rgba(255,255,255,.22) !important;
+    border-radius: 8px;
+}}
+[data-testid="stSidebar"] [data-baseweb="select"] > div:hover {{
+    border-color: rgba(255,255,255,.4) !important;
+}}
+[data-testid="stSidebar"] [data-baseweb="select"] input {{
+    color: #E8F2EA !important;
+}}
+/* chips de cultivos seleccionados: verde legible con texto blanco */
 [data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] {{
-    background: rgba(255,255,255,.14) !important;
+    background: {VERDE} !important;
     border-radius: 6px;
+}}
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] span,
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="tag"] svg {{
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+}}
+/* iconos de flecha y limpiar del selector */
+[data-testid="stSidebar"] [data-baseweb="select"] svg {{
+    fill: #C7D8CB !important;
+}}
+/* menú desplegable (portal en el cuerpo): texto oscuro sobre blanco */
+[data-baseweb="popover"] [role="option"] {{
+    color: {TINTA} !important;
 }}
 [data-testid="stSidebar"] hr {{
     border-color: rgba(255,255,255,.15);
@@ -612,7 +670,11 @@ with tab_presc:
     )
     fig.add_vline(x=1.0, line_dash="dash", line_color=TINTA_SUAVE)
     fig.update_traces(textposition="outside", textfont_size=11)
-    fig.update_layout(height=470)
+    fig.update_layout(
+        height=470,
+        legend=dict(orientation="h", yanchor="top", y=-0.14, xanchor="left", x=0),
+        margin=dict(t=60, b=10),
+    )
     with col_grafico.container(border=False):
         st.plotly_chart(fig, width='stretch')
 
